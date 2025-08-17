@@ -42,7 +42,9 @@ export const MessageBubble = (props: MessageBubbleProps) => {
                 <div className="flex flex-col gap-2">
                   {text.map((part, index) => (
                     <div key={index} className="basis-full text-sm">
-                      <Markdown>{part?.text}</Markdown>
+                      <Markdown>
+                        {"text" in part ? part.text : ""}
+                      </Markdown>
                     </div>
                   ))}
                 </div>
@@ -53,7 +55,9 @@ export const MessageBubble = (props: MessageBubbleProps) => {
                 <div className="flex flex-wrap gap-2">
                   {files.map((part, index) => (
                     <div key={index}>
-                      <PreviewAttachment attachment={part} />
+                      {"mediaType" in part && "url" in part ? (
+                        <PreviewAttachment attachment={part} />
+                      ) : null}
                     </div>
                   ))}
                 </div>
