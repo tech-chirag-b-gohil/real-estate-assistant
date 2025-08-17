@@ -42,7 +42,7 @@ export const MessageBubble = (props: MessageBubbleProps) => {
                 <div className="flex flex-col gap-2">
                   {text.map((part, index) => (
                     <div key={index} className="basis-full text-sm">
-                      <Markdown>{part.text}</Markdown>
+                      <Markdown>{part?.text}</Markdown>
                     </div>
                   ))}
                 </div>
