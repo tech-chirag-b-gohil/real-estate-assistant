@@ -1,6 +1,5 @@
 "use client";
 
-import type { UIMessage } from "@ai-sdk/react"
 import type React from "react";
 import {
   useRef,
@@ -47,7 +46,7 @@ export function Input({
       textareaRef.current.style.height = "auto";
       textareaRef.current.style.height = `${textareaRef.current.scrollHeight + imagePlaceholderHeight}px`;
     }
-  }, [files, textareaRef.current]);
+  }, [files]);
 
   const removeFile = (index: number) => {
     const newFiles = files ? [...files] : [];

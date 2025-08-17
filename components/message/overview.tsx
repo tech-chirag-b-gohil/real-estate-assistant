@@ -11,15 +11,15 @@ export const Overview = () => {
       transition={{ delay: 0.5 }}
     >
       <div className="rounded-xl p-6 flex flex-col gap-3 leading-relaxed text-center max-w-xl">
-        <h3 className="text-lg font-semibold">I'm a Real Estate Assistant</h3>
+        <h3 className="text-lg font-semibold">I&apos;m a Real Estate Assistant</h3>
         <div className="text-muted-foreground">
-          I can help you with your real estate needs, whether you're buying, selling, or renting a property.
+          I can help you with your real estate needs, whether you&apos;re buying, selling, or renting a property.
         </div>
         <div className="text-muted-foreground">
-          I'm here to provide you with the information and support you need to make informed decisions.
+          I&apos;m here to provide you with the information and support you need to make informed decisions.
         </div>
         <div className="text-muted-foreground">
-          Whether you need help with property listings, market analysis, or legal advice, I'm here to assist you every step of the way.
+          Whether you need help with property listings, market analysis, or legal advice, I&apos;m here to assist you every step of the way.
         </div>
       </div>
     </motion.div>
