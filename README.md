@@ -16,6 +16,10 @@ A multi-agent AI-powered assistant for real estate inquiries and property analys
 - **Backend:** FastAPI, OpenAI API
 - **Other:** TypeScript, Python, Vercel (deployment)
 
+## Live Demo
+
+The app is hosted at: [https://real-estate-assistant-nine.vercel.app/](https://real-estate-assistant-nine.vercel.app/)
+
 ## Getting Started
 
 ### Prerequisites
