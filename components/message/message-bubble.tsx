@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-import { SparklesIcon } from "../icons";
+import { SparklesIcon, UserIcon } from "../icons";
 import { Markdown } from "../markdown";
 import { PreviewAttachment } from "./preview-attachment";
 import { cn } from "@/lib/utils";
@@ -19,13 +19,18 @@ export const MessageBubble = (props: MessageBubbleProps) => {
   return (
     <div className="group/message" data-role={message.role}>
       <motion.div
-        className={cn("w-full mx-auto max-w-3xl px-4 flex flex-col gap-2 items-start group-data-[role=user]/message:items-end")}
+        className={cn("w-full mx-auto max-w-3xl px-4 flex gap-2 items-start group-data-[role=user]/message:items-start group-data-[role=user]/message:flex-row-reverse")}
         initial={{ y: 5, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
       >
         {message.role === "assistant" && (
-          <div className="size-6 flex items-center rounded-full justify-center ring-1 shrink-0 ring-border">
-            <SparklesIcon size={12} />
+          <div className="size-7 flex items-center rounded-full justify-center ring-1 shrink-0 ring-border">
+            <SparklesIcon size={14} />
+          </div>
+        )}
+        {message.role === "user" && (
+          <div className="size-7 flex items-center rounded-full justify-center ring-1 shrink-0 ring-border">
+            <UserIcon size={14} />
           </div>
         )}
         <div

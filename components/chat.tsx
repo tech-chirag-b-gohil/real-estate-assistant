@@ -64,9 +64,7 @@ export function Chat() {
           />
         ))}
 
-        {isLoading &&
-          messages.length > 0 &&
-          messages[messages.length - 1].role === "user" && <ThinkingMessage />}
+        {isLoading && <ThinkingMessage />}
 
         <div
           ref={messagesEndRef}
