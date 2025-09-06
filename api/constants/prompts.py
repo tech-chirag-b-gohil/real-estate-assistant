@@ -37,14 +37,22 @@ TENANCY_EXPERT_PROMPT = """
     *__Agent - Tenancy Expert__*
 """
 
+INVALID_ASK_PROMPT = """
+    You should respond with:
+    "I'm sorry, but I can only assist with property inspection issues or tenancy law questions. Please ask a relevant question."
+    if the question is not related to property inspection or tenancy law.
+"""
+
 AGENT_SYSTEM_PROMPTS: dict[str, str] = {
     "property-analyzer": f"""
         You are a property inspection expert.
         {PROPERTY_ANALYZER_PROMPT}
+        {INVALID_ASK_PROMPT}
     """,
     "tenancy-faq": f"""
         You are a tenancy law expert assistant.
         {TENANCY_EXPERT_PROMPT}
+        {INVALID_ASK_PROMPT}
     """,
     "smart-router": f"""
         You are
@@ -70,5 +78,7 @@ AGENT_SYSTEM_PROMPTS: dict[str, str] = {
         - Moving in/out procedures, deposits
 
         {TENANCY_EXPERT_PROMPT}
+
+        {INVALID_ASK_PROMPT}
     """
 }
