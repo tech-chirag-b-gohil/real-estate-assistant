@@ -35,7 +35,7 @@ export function Chat() {
     }
   });
 
-  const isLoading = status === "streaming";
+  const isLoading = ["streaming", "submitted"].indexOf(status) > -1;
 
   const [messagesContainerRef, messagesEndRef] = useScrollToBottom<HTMLDivElement>();
 
@@ -46,8 +46,6 @@ export function Chat() {
       }
     });
   };
-
-  console.log(isLoading, messages.length, messages[messages.length - 1]?.role, messages[messages.length - 1]?.role === "user");
 
   return (
     <div className="flex flex-col min-w-0 h-[calc(100dvh-55px)] bg-background">

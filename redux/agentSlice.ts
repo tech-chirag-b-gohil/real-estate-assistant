@@ -9,7 +9,7 @@ export interface AgentState {
 
 const initialState: AgentState = {
   agents,
-  activeAgent: agents?.[1] || null,
+  activeAgent: agents?.[0] || null,
 }
 
 export const agentSlice = createSlice({

@@ -9,19 +9,14 @@ import {
 import { toast } from "sonner";
 
 import { cn, sanitizeUIMessage } from "@/lib/utils";
+import { agentQuestions } from "@/lib/questions";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 
 import { ArrowUpIcon, StopIcon, UploadIcon, MenuIcon, CrossIcon } from "../icons";
 import { Button } from "../ui/button";
 import { Textarea } from "../ui/textarea";
 import Image from "next/image";
-
-const suggestedActions = [
-  "Analyze the property",
-  "How much notice do I need to give before vacating?",
-  "Can my landlord increase rent midway through the contract?",
-  "What to do if the landlord is not returning the deposit?",
-];
-
 
 export function Input({
   isLoading,
@@ -34,6 +29,7 @@ export function Input({
   sendMessage: (message: any) => void;
   className?: string;
 }) {
+  const { activeAgent } = useSelector((state: RootState) => state.agent);
   const [input, setInput] = useState('');
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [files, setFiles] = useState<File[] | undefined>(undefined);
@@ -119,11 +115,11 @@ export function Input({
           <>
             <div className="fixed inset-0 z-10 bg-black opacity-10" onClick={toggleMenu}></div>
             <div className="absolute left-0 bottom-0 mt-2 w-48 bg-muted border rounded-md shadow-lg z-10">
-              {suggestedActions.map((action) => (
+              {activeAgent && agentQuestions[activeAgent.slug as keyof typeof agentQuestions]?.map((action) => (
                 <div
                   key={action}
                   onClick={() => handleSuggestedActionClick(action)}
-                  className="whitespace-normal text-muted-foreground text-xs px-4 py-2 hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:text-primary cursor-pointer"
+                  className="whitespace-normal text-muted-foreground text-xs px-4 py-2 hover:bg-zinc-300 dark:hover:bg-zinc-700 hover:text-primary cursor-pointer min-h-[34px] flex items-center"
                 >
                   {action}
                 </div>
@@ -207,7 +203,7 @@ export function Input({
                 event.preventDefault();
                 submitForm();
               }}
-              disabled={input.length === 0}
+              disabled={input.length === 0 && !files}
             >
               <ArrowUpIcon size={14} />
             </Button>

@@ -10,20 +10,13 @@ export type Agent = {
 const agents: Agent[] = [
   {
     id: "1",
-    name: "Smart Router",
-    nameIntials: "SR",
-    description: "Automatically routes to the best agent for your needs",
-    slug: "smart-router",
-  },
-  {
-    id: "2",
     name: "Property Analyzer",
     nameIntials: "PA",
     description: "Image analysis for property issues and troubleshooting",
     slug: "property-analyzer",
   },
   {
-    id: "3",
+    id: "2",
     name: "Tenancy FAQ",
     nameIntials: "TF",
     description: "Legal guidance and rental questions",
